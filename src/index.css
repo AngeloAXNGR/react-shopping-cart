@@ -12,11 +12,14 @@ code {
     monospace;
 }
 
-
+/* Header */
 header{
   display:flex;
   align-items: center;
   padding: 0 20px;
+  background-color:black;
+  color:white;
+  position:relative;
 }
 
 #header-title{
@@ -27,3 +30,55 @@ header{
   display:flex;
   gap: 20px;
 }
+
+#cart-icon{
+  cursor:pointer;
+}
+
+.cart{
+  background-color: pink;
+  position: absolute;
+  right:0;
+  top:0;
+  height:100vh;
+  width: 500px;
+  transition: transform 300ms;
+}
+/* End Header */
+
+
+/* Products Page */
+.products{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap:32px;
+  padding: 50px;
+}
+
+.card{
+  padding: 10px;
+  border:2px solid black;
+  display:flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.product-image{
+  margin:0 auto;
+}
+
+.product-image > img{
+  width: 200px;
+  height: 200px;
+  border:2px solid black;
+}
+
+#product-title{
+  text-align: left;
+}
+
+.product-details{
+  border:2px solid black;
+}
+/* End Products Page */
