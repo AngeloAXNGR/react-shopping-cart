@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../components/Card";
 
-const Products = () =>{
+const Products = ({addProduct}) =>{
   const [products, setProducts] = React.useState([]);
 
   React.useEffect(() => {
@@ -15,7 +15,7 @@ const Products = () =>{
     getProducts();
   }, [])
 
-  console.log(products);
+  // console.log(products);
 
   const parseData = (data) =>{
     let productsArray = [];
@@ -39,6 +39,7 @@ const Products = () =>{
         image={product.image}
         title={product.title}
         price={product.price}
+        addProduct={(product) => addProduct(product)}
       />
     )
   })

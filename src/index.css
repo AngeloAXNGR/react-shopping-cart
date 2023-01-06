@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+
 /* Header */
 header{
   display:flex;
@@ -19,7 +20,6 @@ header{
   padding: 0 20px;
   background-color:black;
   color:white;
-  position:relative;
 }
 
 #header-title{
@@ -37,7 +37,7 @@ header{
 
 .cart{
   background-color: pink;
-  position: absolute;
+  position: fixed;
   right:0;
   top:0;
   height:100vh;

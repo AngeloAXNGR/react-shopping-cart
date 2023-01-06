@@ -15,19 +15,39 @@ function App() {
     setOpenCart(prevOpen => {return !prevOpen});
   }
 
+  const addToCart = (product) => {
+    setCart(prevCart => {
+      const notAdded = prevCart.every(item =>{
+        return item.id !== product.id
+      })
+
+      if(notAdded){
+        return [...prevCart, product]
+      }else{
+        return prevCart.map(item => {
+          return item.id === product.id ? {...item, quantity: item.quantity + 1} : item;
+        })
+      }
+   
+    })
+
+  }
+
+  console.log(cart)
 
   return (
     <div className="app">
-      <Header
-        showCart={toggleCartOpen}
-      />
       <Cart 
         open={openCart}
         closeCart={toggleCartOpen}
+        cart={cart}
       />
-      
-      
+      <Header
+        showCart={toggleCartOpen}
+      />
+
       <RouteSwitch
+        addProduct={addToCart}
       />
     </div>
   );

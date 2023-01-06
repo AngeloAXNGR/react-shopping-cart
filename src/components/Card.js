@@ -1,4 +1,13 @@
-const Card = ({id, image, title, price}) =>{
+const Card = ({id, image, title, price, addProduct}) =>{
+
+  const product = {
+    id:id,
+    image:image,
+    title:title,
+    price:price,
+    quantity:1
+  }
+  
   return(
     <div className="card">
       <div className="product-image">
@@ -8,7 +17,7 @@ const Card = ({id, image, title, price}) =>{
         <p id="product-title">{title}</p>
         <p>{price}</p>
       </div>
-      <button>Add to Cart</button>
+      <button onClick={() => addProduct(product)}>Add to Cart</button>
     </div>
   );
 }
