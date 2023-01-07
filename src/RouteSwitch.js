@@ -5,8 +5,8 @@ import Products from "./pages/Products";
 const RouteSwitch = ({addProduct}) => {
   return(
     <Routes>
-      <Route path="/" element={<Home/>}></Route>
-      <Route path="products" element={
+      <Route path="/react-shopping-cart" element={<Home/>}></Route>
+      <Route path="/react-shopping-cart/products" element={
         <Products
           addProduct={(product) => addProduct(product)}
         />
