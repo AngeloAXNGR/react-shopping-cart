@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import CartIcon from '../images/cart.svg'
-const Header = ({showCart}) => {
+const Header = ({showCart, itemCount}) => {
 
 
   return(
@@ -10,7 +10,10 @@ const Header = ({showCart}) => {
       <div className="header-links">
         <NavLink to="/">Home</NavLink>
         <NavLink to="products">Products</NavLink>
-        <img onClick={showCart} id="cart-icon" src={CartIcon} alt="" />
+        <div className="cart-icon">
+          <img onClick={showCart}  src={CartIcon} alt="" />
+          {itemCount != 0 && <p>{itemCount}</p>}
+        </div>
       </div>
     </header>
   )
