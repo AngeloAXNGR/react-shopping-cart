@@ -10,16 +10,21 @@ function App() {
 
   const [cart, setCart] = React.useState(() => {return JSON.parse(localStorage.getItem('cart')) || []});
   const [runningTotal, setRunningTotal] = React.useState(0.00);
+  const [cartItemCount, setCartItemCount] = React.useState(0);
 
   React.useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
-    
-
+  
     let total = 0;
+    let count = 0;
     for(let i = 0; i < cart.length; i++){
       total += parseFloat(cart[i].quantity * cart[i].price)
+      count += cart[i].quantity;
     }
     setRunningTotal(total.toFixed(2));
+    setCartItemCount(count)
+
+
   },[cart])
 
 
@@ -84,7 +89,7 @@ function App() {
         runningTotal={runningTotal}
       />
       <Header
-        itemCount={cart.length}
+        itemCount={cartItemCount}
         showCart={toggleCartOpen}
       />
 
