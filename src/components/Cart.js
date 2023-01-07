@@ -1,8 +1,12 @@
 import CartItem from "./CartItem";
 const Cart = ({open, closeCart, cart, runningTotal, addQuantity, subtractQuantity}) =>{
-
-  const styles = {
+ const sidebarStyle = {
     transform: open ? 'translateX(0)' : 'translateX(100%)'
+  }
+ 
+  const fillerStyle = {
+    backgroundColor: open ?  'black': 'transparent',
+    pointerEvents: open ? 'auto' : 'none'
   }
 
 
@@ -22,14 +26,19 @@ const Cart = ({open, closeCart, cart, runningTotal, addQuantity, subtractQuantit
     )});
 
   return(
-    <div style={styles}className="cart">
-      <div className="cart-items">
-        {cartItems}
+    <div className="cart">
+      <div style={fillerStyle} onClick={closeCart} className="filler">
       </div>
+      <div style={sidebarStyle}className="cart-sidebar">
+        <h1>Cart Summary</h1>
+        <div className="cart-items">
+          {cartItems}
+        </div>
       
-      <h1>Running Total: ${runningTotal}</h1>
-      <button>Check Out</button>
-      <button onClick={closeCart}>Close</button>
+        <h1>Total: ${runningTotal}</h1>
+        <button id="checkout">Check Out</button>
+        <button id="close-cart" onClick={closeCart}>Close</button>
+      </div>
     </div>
   );
 }

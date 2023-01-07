@@ -6,13 +6,13 @@ const Header = ({showCart, itemCount}) => {
 
   return(
     <header>
-      <h1 id="header-title">eCommerce Site</h1>
+      <h1 id="header-title">RifeCart</h1>
       <div className="header-links">
         <NavLink to="/">Home</NavLink>
         <NavLink to="products">Products</NavLink>
         <div className="cart-icon">
           <img onClick={showCart}  src={CartIcon} alt="" />
-          {itemCount != 0 && <p>{itemCount}</p>}
+          {itemCount !== 0 && <p>{itemCount}</p>}
         </div>
       </div>
     </header>

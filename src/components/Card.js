@@ -15,9 +15,11 @@ const Card = ({id, image, title, price, addProduct}) =>{
       </div>
       <div className="product-details">
         <p id="product-title">{title}</p>
-        <p>{price}</p>
+        <div className="pricing">
+          <p id="product-price">${price}</p>
+          <button id="add-product" onClick={() => addProduct(product)}>Add to Cart</button>
+        </div>
       </div>
-      <button onClick={() => addProduct(product)}>Add to Cart</button>
     </div>
   );
 }
